@@ -1,23 +1,21 @@
-pipeline { 
-agent any 
-    stage('Test') {
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
             steps {
-                sh 'mvn test'
+                echo 'Building..'
             }
-            
         }
-        stage ('Test') { 
-        
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
         }
-        stage ('QA') { 
-        
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
         }
-        stage ('Deploy') { 
-        
-        }
-        stage ('Monitor') { 
- 
-        }
- 
-    }           
- }
+    }
+}
